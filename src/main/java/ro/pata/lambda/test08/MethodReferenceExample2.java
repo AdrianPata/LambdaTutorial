@@ -1,11 +1,12 @@
-package ro.pata.lambda.test04;
+package ro.pata.lambda.test08;
+
+import ro.pata.lambda.test04.Person;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.function.Consumer;
 import java.util.function.Predicate;
 
-public class Exercise01 {
+public class MethodReferenceExample2 {
     public static void main(String[] args) {
         List<Person> people= Arrays.asList(
                 new Person("Charles","Dickens",60),
@@ -15,13 +16,13 @@ public class Exercise01 {
                 new Person("Matthew","Arnold",39)
         );
 
-        printConditionally(people, p->true,System.out::println); //p->method(p)
+
     }
 
-    private static void printConditionally(List<Person> people, Predicate<Person> condition, Consumer<Person> consumer) {
+    private static void printConditionally(List<Person> people, Predicate<Person> condition) {
         for(Person p:people){
             if(condition.test(p)) {
-                consumer.accept(p);
+                System.out.println(p);
             }
         }
     }
